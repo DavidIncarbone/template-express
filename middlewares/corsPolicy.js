@@ -1,24 +1,4 @@
-function corsPolicy(req, res, next) {
-<<<<<<< HEAD
-    res.setHeader(`Access-Control-Allow-Origin`, `*`)
-
-    res.setHeader(
-        `Access-Control-Allow-Methods`,
-        `GET,POST,PUT,PATCH,DELETE`
-    );
-
-    res.setHeader(
-        `Access-Control-Allow-Headers`,
-        `X-Requested-With,content-type`
-    );
-
-    res.setHeader(`Access-Control-Allow-Credentials`, true);
-
-    next();
-}
-
-module.exports = corsPolicy;
-=======
+export default function corsPolicy(req, res, next) {
   // Website you wish to allow to connect
   res.setHeader("Access-Control-Allow-Origin", "*");
 
@@ -41,6 +21,3 @@ module.exports = corsPolicy;
   // Pass to next layer of middleware
   next();
 }
-
-module.exports = corsPolicy;
->>>>>>> 844718134f9db32808982099456f5e2217b00bab

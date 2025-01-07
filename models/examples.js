@@ -1,19 +1,4 @@
 const examples = [
-<<<<<<< HEAD
-    { id: 1, title: "Lorem ipsum dolor sit amet" },
-    { id: 2, title: "Consectetur adipiscing elit" },
-    { id: 3, title: "Sed do eiusmod tempor incididunt" },
-    { id: 4, title: "Ut labore et dolore magna aliqua" },
-    { id: 5, title: "Ut enim ad minim veniam" },
-    { id: 6, title: "Quis nostrud exercitation ullamco" },
-    { id: 7, title: "Laboris nisi ut aliquip ex ea" },
-    { id: 8, title: "Commodo consequat duis aute" },
-    { id: 9, title: "Irure dolor in reprehenderit in voluptate" },
-    { id: 10, title: "Velit esse cillum dolore eu fugiat" }
-];
-
-module.exports = examples;
-=======
   { id: 1, title: "Lorem ipsum dolor sit amet" },
   { id: 2, title: "Consectetur adipiscing elit" },
   { id: 3, title: "Sed do eiusmod tempor incididunt" },
@@ -25,6 +10,52 @@ module.exports = examples;
   { id: 9, title: "Eu fugiat nulla pariatur excepteur sint" },
   { id: 10, title: "Occaecat cupidatat non proident sunt" },
 ];
-
-module.exports = examples;
->>>>>>> 844718134f9db32808982099456f5e2217b00bab
+const pizzas = [
+  {
+    id: 1,
+    name: "Margherita",
+    image: "/img/pizze/margherita.webp",
+    price: "€ 8.00",
+    avaiable: true,
+    ingredients: ["pomodoro", "mozzarella"],
+  },
+  {
+    id: 2,
+    name: "Marinara",
+    image: "/img/pizze/marinara.jpeg",
+    price: "€ 6.00",
+    avaiable: true,
+    ingredients: ["pomodoro", "aglio", "origano"],
+  },
+  {
+    id: 3,
+    name: "Diavola",
+    image: "/img/pizze/diavola.jpeg",
+    price: "€ 7.00",
+    avaiable: true,
+    ingredients: ["pomodoro", "mozzarella", "salame piccante"],
+  },
+  {
+    id: 4,
+    name: "Bufalina",
+    image: "/img/pizze/bufalina.jpeg",
+    price: "€ 10.00",
+    avaiable: true,
+    ingredients: ["pomodoro", "mozzarella di bufala"],
+  },
+  {
+    id: 5,
+    name: "4 formaggi",
+    image: "/img/pizze/4_formaggi.jpeg",
+    price: "€ 10.00",
+    avaiable: false,
+    ingredients: [
+      "pomodoro",
+      "mozzarella",
+      "gorgonzola",
+      "parmigiano",
+      "ricotta",
+    ],
+  },
+];
+export { pizzas };
