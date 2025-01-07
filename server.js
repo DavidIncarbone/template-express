@@ -3,7 +3,7 @@ import express from "express";
 //Other imports
 import errorsHandler from "./middlewares/errorsHandler.js";
 import notFound from "./middlewares/notFound.js";
-import corsPolicy from "./middlewares/corsPolicy.js";
+import cors from "cors";
 import examplesRouter from "./routes/examples.js";
 // create a server instance
 const app = express();
@@ -12,7 +12,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 
-app.use(corsPolicy);
+app.use(cors({
+  origin: "localhost: http://localhost:3000"
+}));
 
 // registro il body-parser per "application/json"
 app.use(express.json());
