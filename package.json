@@ -1,7 +1,11 @@
 {
   "name": "template-express",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "```bash\r # clone repository\r #add package-lock.json to .gitignore\r #edit README.md",
+=======
+  "description": "```bash\r # clone repository\r # add package-lock.json to .gitignore\r # edit README.md",
+>>>>>>> 844718134f9db32808982099456f5e2217b00bab
   "main": "server.js",
   "scripts": {
     "start": "node --env-file=.env server.js",
@@ -11,7 +15,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "cors": "^2.8.5",
+=======
+>>>>>>> 844718134f9db32808982099456f5e2217b00bab
     "express": "^4.21.2"
   }
 }
