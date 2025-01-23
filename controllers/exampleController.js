@@ -1,21 +1,31 @@
-import { pizzas as examples } from "../models/examples.js";
+import connection from "../connection.js";
 import CustomError from "../classes/CustomError.js";
 
 function index(req, res) {
-  const response = {
-    totalCount: examples.length,
-    data: [...examples],
-  };
-  res.json(response);
+  const sql = "SELECT * FROM `examples`";
+  connection.query(sql, (err, results) => {
+    if (err) return res.status(500).json({ error: "Database query failed" });
+
+    let data = results;
+    const response = {
+      totalCount: results.length,
+      data,
+    };
+    res.json(response);
+  })
 }
 
 function show(req, res) {
   const id = parseInt(req.params.id);
-  const item = examples.find((item) => item.id === id);
-  if (!item) {
-    throw new CustomError("L'elemento non esiste", 404);
-  }
-  res.json({ success: true, item });
+  const sql = "SELECT * FROM `examples` WHERE `id` = ?";
+  connection.query(sql, [id], (err, results) => {
+    if (err) return res.status(500).json({ error: "Database query failed" });
+    const item = results[0];
+    if (!item) {
+      return res.status(404).json({ error: "L'elemento non esiste" });
+
+    }
+  });
 }
 
 function store(req, res) {
@@ -27,7 +37,7 @@ function store(req, res) {
   }
   newId += 1;
   console.log(req.body);
-  // new data is in req.body
+
   const newItem = {
     id: newId,
     ...req.body,
@@ -44,25 +54,23 @@ function update(req, res) {
     throw new CustomError("L'elemento non esiste", 404);
   }
 
-  //console.log(req.body);
+
   for (key in item) {
     if (key !== "id") {
       item[key] = req.body[key];
     }
   }
 
-  //console.log(examples);
+
   res.json(item);
 }
 function destroy(req, res) {
   const id = parseInt(req.params.id);
-  const index = examples.findIndex((item) => item.id === id);
-  if (index !== -1) {
-    examples.splice(index, 1);
+  const sql = "DELETE FROM `examples` WHERE `id` = ?";
+  connection.query(sql, [id], (err, results) => {
+    if (err) return res.status(500).json({ error: "Database query failed" });
     res.sendStatus(204);
-  } else {
-    throw new CustomError("L'elemento non esiste", 404);
-  }
+  });
 }
 
 export { index, show, store, update, destroy };

@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 //other routes
-app.use("/examples", examplesRouter);
+app.use("/api/examples", examplesRouter);
 
 app.use(errorsHandler);
 

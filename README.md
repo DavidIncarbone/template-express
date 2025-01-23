@@ -15,7 +15,13 @@ npm init -y
 # create env file
 ni .env
 
-# add in env PORT = 3000
+# add in env PORT = 3000 etc
+PORT=3000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=root
+DB_NAME=books_db
+
 # configure package json with dev and start script (env e watch)
 
 ```
@@ -36,7 +42,10 @@ npm install express
     # per cors
     npm install cors
 ```
-
+```bash
+    # per mysql
+    npm install mysql2
+```
 ```javascript
 // import express in server js
 const express = require("express");
